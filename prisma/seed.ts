@@ -25,15 +25,15 @@ async function main(){
     const customer_data = [{
         name: 'Alex Bessa',
         email: 'alex@email.com',
-        imageUrl: 'https://ui-avatars/api/?nome=Alex+Bessa&background=random'
+        imageUrl: 'https://ui-avatars/api/?name=Alex+Bessa&background=random'
     },{
         name: 'valdiana',
         email: 'valdina@email.com',
-        imageUrl: 'https://ui-avatars/api/?nome=Valdiana+Bessa&background=random'
+        imageUrl: 'https://ui-avatars/api/?name=Valdiana+Bessa&background=random'
     },{
         name: 'Timóteio Bessa',
         email: 'timoteo@email.com',
-        imageUrl: 'https://ui-avatars/api/?nome=Timoteo+Bessa&background=random'
+        imageUrl: 'https://ui-avatars/api/?name=Timoteo+Bessa&background=random'
     }];
     const customers = [];
 
@@ -114,7 +114,7 @@ async function main(){
     for (const data of invoiceData ){
         await prisma.invoice.create({
             data: {
-                amout: data.amount,
+                amount: data.amount,
                 status: data.status,
                 date: new Date(data.date),
                 customerId: data.customer.id,
