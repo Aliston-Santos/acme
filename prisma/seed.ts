@@ -52,62 +52,62 @@ async function main(){
         {
             amount: 656542, 
             status: InvoiceStatus.PENDENTE,
-            date: '2026-3-05', 
+            date: '2026-05-03', 
             customer: customers[0]
         },{
             amount: 15355, 
             status: InvoiceStatus.PENDENTE,
-            date: '2026-23-05', 
+            date: '2026-05-23', 
             customer: customers[1]
         },{
             amount: 34534, 
             status: InvoiceStatus.PENDENTE,
-            date: '2026-30-05', 
+            date: '2026-05-30', 
             customer: customers[2]
         },{
             amount: 96345, 
             status: InvoiceStatus.PAGO,
-            date: '2026-21-05', 
+            date: '2026-05-21', 
             customer: customers[2]
         },{
             amount: 39734, 
             status: InvoiceStatus.PENDENTE,
-            date: '2026-15-05', 
+            date: '2026-05-15', 
             customer: customers[1]
         },{
             amount: 7646, 
             status: InvoiceStatus.PAGO,
-            date: '2026-13-05', 
+            date: '2026-05-13', 
             customer: customers[0]
         },{
             amount: 2423, 
             status: InvoiceStatus.PAGO,
-            date: '2026-10-05', 
+            date: '2026-05-10', 
             customer: customers[0]
         },{
             amount: 432423, 
             status: InvoiceStatus.PENDENTE,
-            date: '2026-07-05', 
+            date: '2026-05-07', 
             customer: customers[1]
         },{
             amount: 865876, 
             status: InvoiceStatus.PENDENTE,
-            date: '2026-04-05', 
+            date: '2026-05-04', 
             customer: customers[2]
         },{
             amount: 4324, 
             status: InvoiceStatus.PAGO,
-            date: '2026-17-05', 
+            date: '2026-05-17', 
             customer: customers[2]
         },{
             amount: 654645, 
             status: InvoiceStatus.PENDENTE,
-            date: '2026-02-05', 
+            date: '2026-05-02', 
             customer: customers[1]
         },{
             amount: 62623, 
             status: InvoiceStatus.PAGO,
-            date: '2026-18-05', 
+            date: '2026-05-18', 
             customer: customers[0]
         }]
 
