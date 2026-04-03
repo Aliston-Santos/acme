@@ -16,7 +16,7 @@ export interface Customer {
 } 
 
 export type CreateCustomerData = Omit<Customer, 'id'>;
-export type UpdateCustomerData = Partial <CreateCustomerData>
+export type UpdateCustomerData = Partial<CreateCustomerData>
 
 export type InvoiceStatus = 'PENDENTE' | 'PAGO';
 
