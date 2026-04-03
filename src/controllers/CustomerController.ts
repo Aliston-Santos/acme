@@ -9,11 +9,10 @@ import {
 } from '@/services/CustomerServices'
 
 import {ApiError} from '@/types'
-import { string } from 'zod/v4';
 
 export const CreateCustomerSchema = z.object({
 name: z
-	.string({required_error: 'O campo é obrigatório.'})
+	.string({required_error: 'O campo é obrigatório.'}) 
 	.min(1, 'O campo não pode estar vazio')
 	.max(100, 'O campo deve ter no máximo 100 caracteres.'),	
 email: z
