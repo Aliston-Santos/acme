@@ -53,8 +53,8 @@ export async function CreateCustomer(
 }
 
 export async function updateCustomer(
-    data: UpdateCustomerData,
-    id: string
+    id: string,
+    data: UpdateCustomerData
 ): Promise <Customer>{
 
     const customer = await prisma.customer.update({
