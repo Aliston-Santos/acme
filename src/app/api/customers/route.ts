@@ -13,7 +13,7 @@ const {
 export async function GET (request: NextRequest) {
     const { searchParams } = request.nextUrl;
 
-    const result = await getAll(searchParams);
+    const result = await CustomerController.getAll(searchParams);
 
     return NextResponse.json(
         result.body,
