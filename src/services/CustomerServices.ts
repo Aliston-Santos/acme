@@ -2,31 +2,70 @@ import prisma from '@/lib/prisma';
 import {
     Customer,
     CreateCustomerData,
-    UpdateCustomerData
+    UpdateCustomerData,
+    FindAllCustomersParams,
+    PaginatedResponse
 } from '@/types';
 
-interface FindAllParams{
-    search?: string;
+const SORTABLE_FIELDS = ['name', 'email'] as const;
 
-}
+
+type SortableFields = (typeof SORTABLE_FIELDS) [number]
+
+
+function isSortableFields(value:string): value is SortableFields {
+	return(SORTABLE_FIELDS as readonly string[]).includes(value);
+};
 
 export async function findAllCustomers(
-    params: FindAllParams = {}
-): Promise<Customer[]>{
+    params: FindAllCustomersParams
+): Promise<PaginatedResponse<Customer>>{
 
-    const {search} = params; 
+    const {
+        search,
+        page = 1,
+        limit = 10,
+        sortBy = 'name',    
+        order = 'asc'
+    } = params; 
 
-    const customers = await prisma.customer.findMany({
-        where: search ? {
+
+    const safePage = Math.max(1, page);
+    const safeLimit = Math.min (Math.max(1, limit), 100);
+    const skip = (safePage - 1) * safeLimit;
+
+    const safeSortBy = isSortableFields (sortBy) ? sortBy : 'name';
+
+    const where = search ? {
             OR : [
-                {name: { contains: search, mode: 'insensitive'}},
-                {email: { contains: search, mode: 'insensitive'}}
+                {name: { contains: search, mode: 'insensitive' as const}},
+                {email: { contains: search, mode: 'insensitive' as const}}
             ]
-        } : undefined,
-        orderBy: {name: 'asc'}
-    });
+        } : undefined
 
-    return customers
+   const [ customer, total] = await Promise.all([
+	prisma.customer.findMany({
+	where, 
+	orderBy: {[safeSortBy]: order},
+	take: safeLimit,
+	skip
+}),
+	prisma.customer.count({ where})
+]);
+
+const totalPages = Math.ceil (total/safeLimit)
+
+return {
+	data: customer, 
+	meta: {
+	total,
+	page: safePage,
+	limit: safeLimit,
+	totalPages,
+	hasMore: safePage < totalPages;
+}
+}
+	
 }
 
 
