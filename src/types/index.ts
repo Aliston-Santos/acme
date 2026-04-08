@@ -21,11 +21,11 @@ export type CreateCustomerData = Omit<Customer, 'id'>;
 export type UpdateCustomerData = Partial<CreateCustomerData>
 
 export interface FindAllCustomersParams {
-    search: string;
-    page: number;
-    limit: number;
-    sortBy: string;
-    order: SortOrder;
+    search?: string;
+    page?: number;
+    limit?: number;
+    sortBy?: string;
+    order?: SortOrder;
 }
 
 export type InvoiceStatus = 'PENDENTE' | 'PAGO';
