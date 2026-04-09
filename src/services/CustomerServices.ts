@@ -18,7 +18,7 @@ function isSortableFields(value:string): value is SortableFields {
 };
 
 export async function findAllCustomers(
-    params: FindAllCustomersParams
+    params: FindAllCustomersParams = {}
 ): Promise<PaginatedResponse<Customer>>{
 
     const {
@@ -62,7 +62,7 @@ return {
 	page: safePage,
 	limit: safeLimit,
 	totalPages,
-	hasMore: safePage < totalPages;
+	hasMore: safePage < totalPages
 }
 }
 	
