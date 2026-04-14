@@ -114,7 +114,7 @@ export async function createInvoice(
 
 export async function updateInvoice(
     id: string,
-    data: CreateInvoiceData
+    data: UpdateInvoiceData
 ): Promise<Invoice> {
     const invoice = await prisma.invoice.update({
         where: {id},
