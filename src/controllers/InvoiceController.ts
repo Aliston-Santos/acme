@@ -21,7 +21,7 @@ export const CreateInvoiceSchema = z.object({
         .positive('O valor dever ser maior que zero'),
     date: z.coerce
         .date({ required_error: 'O campo é obrigatório' }),
-    status: z.enum(['PENDENTE, PAGO'], { required_error: 'O campo é obrigatório.', message: 'O status deve ser PENDENTE ou PAGO.' })
+    status: z.enum(['PENDENTE', 'PAGO'], { required_error: 'O campo é obrigatório.', message: 'O status deve ser PENDENTE ou PAGO.' })
 })
 
 
